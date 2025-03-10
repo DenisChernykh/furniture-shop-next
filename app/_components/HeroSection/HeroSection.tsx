@@ -1,6 +1,7 @@
+import Container from "@/components/UI/Container";
 import Image from "next/image";
 
-import Container from "../UI/Container";
+
 
 type HeroSectionProps = {
   imageUrl: string;
