@@ -48,7 +48,7 @@ export default function RootLayout({
         className={`font-manrope ${brewery.variable} ${montserrat.variable} ${manrope.variable} bg-black text-white`}
       >
         <Header />
-        <main className="z-5 relative">{children}</main>
+        <main className="relative z-5">{children}</main>
       </body>
     </html>
   );

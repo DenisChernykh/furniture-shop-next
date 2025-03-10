@@ -8,12 +8,10 @@ export default function Home() {
     <>
       <HeroSection imageUrl={"/main/bg-main@3x.jpg"}>
         <div className="gap relative z-5 flex flex-col items-center md:gap-32">
-          <HeroSectionTitle>Сделано для уюта вашей души</HeroSectionTitle>
+          <HeroSectionTitle title="Сделано для уюта вашей души" />
           <ScrollArrow />
         </div>
       </HeroSection>
-      <AboutSection />
-      <AboutSection />
       <AboutSection />
       <AboutSection />
       <AboutSection />
