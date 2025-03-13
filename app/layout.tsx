@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
-import Header from "../components/Header/Header";
+
 import Brewery from "next/font/local";
 import Montserrat from "next/font/local";
+import Header from "@/components/shared/Header/Header";
 
 const montserrat = Montserrat({
   src: [

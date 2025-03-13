@@ -1,9 +1,10 @@
 "use client";
 import { MenuContextProvider } from "@/app/context/MenuContext";
-import Container from "../UI/Container";
-import Logo from "../UI/Logo";
+
 import Menu from "./Menu/Menu";
 import { useEffect } from "react";
+import Container from "@/components/UI/Container";
+import Logo from "@/components/UI/Logo";
 
 function Header() {
   useEffect(() => {

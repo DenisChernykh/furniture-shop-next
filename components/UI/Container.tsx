@@ -8,7 +8,9 @@ function Container({
   className?: string;
 }) {
   return (
-    <div className={cn("relative mx-auto max-w-[120rem] px-4 md:px-10", className)}>
+    <div
+      className={cn("relative mx-auto max-w-[117.5rem] px-4 md:px-5", className)}
+    >
       {children}
     </div>
   );

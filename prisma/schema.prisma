@@ -4,17 +4,58 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+model SectionAbout {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
 }
 
-model SectionAbout {
-  id          String @id @default(uuid())
-  title       String
-  desctiption String
+model SectionStatistics {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  title     String
+  indicator String
+}
+
+model TeamMember {
+  id        String        @id @default(uuid())
+  createdAt DateTime      @default(now())
+  firstName String
+  lastName  String
+  imageUrl  String
+  position  String
+  sections  SectionTeam[]
+}
+
+model SectionTeam {
+  id          String       @id @default(uuid())
+  createdAt   DateTime     @default(now())
+  teamMembers TeamMember[]
+}
+
+model SectionAdvantages {
+  id         String       @id @default(uuid())
+  createdAt  DateTime     @default(now())
+  title      String
+  advantages Advantages[]
+}
+
+model Advantages {
+  id                  String             @id @default(uuid())
+  createdAt           DateTime           @default(now())
+  iconUrl             String
+  item                String
+  SectionAdvantages   SectionAdvantages? @relation(fields: [sectionAdvantagesId], references: [id])
+  sectionAdvantagesId String
 }

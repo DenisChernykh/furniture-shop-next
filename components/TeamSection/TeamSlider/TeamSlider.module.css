@@ -1,0 +1,14 @@
+/* TeamSlider.module.css */
+.slide {
+	width: 290px;
+}
+
+@media (max-width: 767px) {
+	.slide {
+		width: 145px;
+	}
+}
+
+.swiper {
+	overflow: hidden;
+}

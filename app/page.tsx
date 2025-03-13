@@ -1,21 +1,37 @@
+import Title from "@/components/UI/Title";
 import ScrollArrow from "../components/UI/ScrollArrow";
-import AboutSection from "./_components/AboutSection/AboutSection";
-import HeroSection from "./_components/HeroSection/HeroSection";
-import HeroSectionTitle from "./_components/HeroSection/HeroSectionTitle";
+import AboutSection from "../components/AboutSection/AboutSection";
+import HeroSection from "../components/shared/HeroSection/HeroSection";
+import AnimatedWrapper from "@/components/UI/AnimatedWrapper";
+import StatsSection from "@/components/shared/StatsSection/StatsSection";
+import { Suspense } from "react";
+import StatsSectionSkeleton from "@/components/shared/StatsSection/StatsSectionSkeleton";
+import AboutSectionSkeleton from "../components/AboutSection/AboutSectionSkeleton";
+import TeamSection from "@/components/TeamSection/TeamSection";
+import TeamSectionSkeleton from "@/components/TeamSection/TeamSectionSkeleton";
+import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection imageUrl={"/main/bg-main@3x.jpg"}>
-        <div className="gap relative z-5 flex flex-col items-center md:gap-32">
-          <HeroSectionTitle title="Сделано для уюта вашей души" />
-          <ScrollArrow />
+        <div className="relative z-5 flex flex-col items-center gap-6 md:gap-32">
+          <AnimatedWrapper triggerScroll={false}>
+            <Title as="h1" size="hero" title="Сделано для уюта вашей души" />
+          </AnimatedWrapper>
+          <ScrollArrow targetId="about" />
         </div>
       </HeroSection>
-      <AboutSection />
-      <AboutSection />
-      <AboutSection />
-      <AboutSection />
+      <Suspense fallback={<AboutSectionSkeleton />}>
+        <AboutSection id="about" />
+      </Suspense>
+      <Suspense fallback={<StatsSectionSkeleton />}>
+        <StatsSection />
+      </Suspense>
+      <Suspense fallback={<TeamSectionSkeleton />}>
+        <TeamSection />
+      </Suspense>
+      <AdvantagesSection />
     </>
   );
 }
