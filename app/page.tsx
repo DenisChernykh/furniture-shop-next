@@ -14,7 +14,7 @@ import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection"
 export default function Home() {
   return (
     <>
-      <HeroSection imageUrl="/main/bg-main@3x.jpg">
+      <HeroSection imageUrl={"/main/bg-main@3x.jpg"}>
         <div className="relative z-5 flex flex-col items-center gap-6 md:gap-32">
           <AnimatedWrapper triggerScroll={false}>
             <Title as="h1" size="hero" title="Сделано для уюта вашей души" />
