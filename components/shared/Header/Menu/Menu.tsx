@@ -31,17 +31,17 @@ function Menu() {
         <MenuBody items={navItemsLeft} />
         <MenuBody items={navItemsRight} />
       </nav>
-      {isOpen && <Drawer />}
+      {/* {isOpen && <Drawer />} */}
     </>
   );
 }
 
-function Drawer() {
-  return (
-    <nav className="fixed top-0 left-0 z-50 hidden h-screen w-64 flex-col bg-green-500 md:flex">
-      <MenuBody isDrawer={true} items={["1", "2", "3", "4"]} />
-    </nav>
-  );
-}
+// function Drawer() {
+//   return (
+//     <nav className="fixed top-0 left-0 z-50 hidden h-screen w-64 flex-col bg-green-500 md:flex">
+//       <MenuBody isDrawer={true} items={["1", "2", "3", "4"]} />
+//     </nav>
+//   );
+// }
 
 export default Menu;
