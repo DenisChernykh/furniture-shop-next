@@ -10,6 +10,7 @@ import AboutSectionSkeleton from "../components/AboutSection/AboutSectionSkeleto
 import TeamSection from "@/components/TeamSection/TeamSection";
 import TeamSectionSkeleton from "@/components/TeamSection/TeamSectionSkeleton";
 import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection";
+import MaterialSection from "@/components/MaterialSection/MaterialSection";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
         <TeamSection />
       </Suspense>
       <AdvantagesSection />
+      <MaterialSection />
     </>
   );
 }

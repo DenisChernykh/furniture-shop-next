@@ -92,3 +92,9 @@ export const fetchAdvantagesData = async () => {
 		throw new DatabaseError('Произошла ошибка при запросе данных c базы данных')
 	}
 }
+
+export const fetchMateriasData = async () => {
+	try { const data = await db.sect} catch (error) {
+
+	}
+}

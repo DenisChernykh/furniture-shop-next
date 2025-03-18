@@ -29,19 +29,17 @@ model SectionStatistics {
 }
 
 model TeamMember {
-  id        String        @id @default(uuid())
-  createdAt DateTime      @default(now())
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
   firstName String
   lastName  String
   imageUrl  String
   position  String
-  sections  SectionTeam[]
 }
 
 model SectionTeam {
-  id          String       @id @default(uuid())
-  createdAt   DateTime     @default(now())
-  teamMembers TeamMember[]
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
 }
 
 model SectionAdvantages {
@@ -58,4 +56,55 @@ model Advantages {
   item                String
   SectionAdvantages   SectionAdvantages? @relation(fields: [sectionAdvantagesId], references: [id])
   sectionAdvantagesId String
+}
+
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstName String
+  lastName  String
+  email     String   @unique
+  username  String   @unique
+  reviews   Review[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model Project {
+  id          String        @id @default(uuid())
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  name        String
+  price       Int
+  imageUrl    Int
+  description String
+  about       ProjectAbout?
+}
+
+model ProjectAbout {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  title       String
+  description String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId   String   @unique
+}
+
+model SectionMaterials {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  title       String
+  description String
+  features    String[]
+  imageUrl    String
+  order       Int
 }
