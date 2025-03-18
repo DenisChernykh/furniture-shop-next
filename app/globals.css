@@ -155,4 +155,9 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+
+	.materials-border {
+		border: 1px solid #fff0;
+		border-image: linear-gradient(to bottom, #ffffff1f 0, #fff0) 1
+	}
 }

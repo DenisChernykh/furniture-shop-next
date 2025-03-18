@@ -93,8 +93,21 @@ export const fetchAdvantagesData = async () => {
 	}
 }
 
-export const fetchMateriasData = async () => {
-	try { const data = await db.sect} catch (error) {
+export const fetchMaterialsData = async () => {
+	try {
 
+		// await new Promise((res) => setTimeout(res, 2000000));
+
+		const data = await db.sectionMaterials.findMany({
+			orderBy: { order: 'asc' }
+		})
+		if (!data || data.length === 0) {
+			throw new DataNotFoundError('Данные для материалов не найдены')
+		}
+		return data
+	} catch (error) {
+		console.error('Ошибка при запросе данных секции материалов:', error);
+		if (error instanceof DataNotFoundError) throw error
+		throw new DatabaseError('Произошла ошибка при запросе данных c базы данных')
 	}
 }

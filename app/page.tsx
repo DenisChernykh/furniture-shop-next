@@ -11,6 +11,7 @@ import TeamSection from "@/components/TeamSection/TeamSection";
 import TeamSectionSkeleton from "@/components/TeamSection/TeamSectionSkeleton";
 import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection";
 import MaterialSection from "@/components/MaterialSection/MaterialSection";
+import MaterialSectionSkeleton from "@/components/MaterialSection/MaterialSectionSkeleton";
 
 export default function Home() {
   return (
@@ -33,7 +34,9 @@ export default function Home() {
         <TeamSection />
       </Suspense>
       <AdvantagesSection />
-      <MaterialSection />
+      <Suspense fallback={<MaterialSectionSkeleton />}>
+        <MaterialSection />
+      </Suspense>
     </>
   );
 }

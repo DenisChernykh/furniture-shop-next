@@ -10,13 +10,14 @@
     "lint": "next lint",
     "pmd": "prisma migrate dev",
     "pgc": "prisma generate",
-    "seed": "ts-node --esm prisma/seed.ts"
+    "seed": "ts-node --esm prisma/seed.ts",
+    "types": "tsc --noEmit --project ./tsconfig.json"
   },
   "prisma": {
     "schema": "./prisma/schema.prisma"
   },
   "dependencies": {
-    "@prisma/client": "^6.4.1",
+    "@prisma/client": "^6.5.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@supabase/supabase-js": "^2.49.1",
     "class-variance-authority": "^0.7.1",
